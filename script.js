@@ -7,6 +7,7 @@ const btnHoldElement = document.querySelector(".btn--hold");
 const btnRollElement = document.querySelector(".btn--roll");
 const diceElement = document.querySelector('.dice');
 
+
 // first condition
 diceElement.classList.add('hidden');
 score0Element.textContent = 0;
@@ -18,9 +19,14 @@ const createRandomNum = function () {
     // console.log(Math.floor(Math.random() * 6 + 1));
     diceElement.classList.remove('hidden');
     diceElement.src = `dice-${randomNum}.png`;
-    // if (randomNum === 1 && ) {
+    if (randomNum === 1) {
+        // switch to nexr player
+    }
+    else {
+        // add number to score
+        score0Element
 
-    // }
+    }
 };
 
 btnRollElement.addEventListener('click', createRandomNum);
