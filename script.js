@@ -14,8 +14,13 @@ score1Element.textContent = 0;
 
 // Rolling Dice
 const createRandomNum = function () {
-    // Math.random() * 6 + 1;
-    console.log(Math.floor(Math.random() * 6 + 1));
+    let randomNum = Math.floor(Math.random() * 6 + 1);
+    // console.log(Math.floor(Math.random() * 6 + 1));
+    diceElement.classList.remove('hidden');
+    diceElement.src = `dice-${randomNum}.png`;
+    // if (randomNum === 1 && ) {
+
+    // }
 };
 
 btnRollElement.addEventListener('click', createRandomNum);
