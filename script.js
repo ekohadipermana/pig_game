@@ -6,6 +6,8 @@ const btnNewElement = document.querySelector(".btn--new");
 const btnHoldElement = document.querySelector(".btn--hold");
 const btnRollElement = document.querySelector(".btn--roll");
 const diceElement = document.querySelector('.dice');
+const thePlayer0 = document.querySelector('.player--0');
+const thePlayer1 = document.querySelector('.player--1');
 
 
 // first condition
@@ -24,7 +26,13 @@ const createRandomNum = function () {
     }
     else {
         // add number to score
-        score0Element
+        if (thePlayer0.classList.contains('player--active')) {
+            score0Element += randomNum;
+        }
+        else if (thePlayer1.classList.contains('player--active')) {
+            score1Element += randomNum;
+        }
+        score0Element += randomNum; 
 
     }
 };
