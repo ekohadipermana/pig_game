@@ -27,7 +27,12 @@ const createRandomNum = function () {
     if (randomNum === 1) {
         // switch to nexr player
         if (thePlayer0.classList.contains('player--active')) {
-            
+            thePlayer0.classList.remove('player--active');
+            thePlayer1.classList.add('player--active');
+        }
+        else if (thePlayer1.classList.contains('player--active')) {
+            thePlayer1.classList.remove('player--active');
+            thePlayer0.classList.add('player--active');
         }
     }
     else {
@@ -37,8 +42,8 @@ const createRandomNum = function () {
             currentScore0.textContent = currentScore;
         }
         else if (thePlayer1.classList.contains('player--active')) {
-            currentScore1 += randomNum;
-            currentScore1.textContent = currentScore1;
+            currentScore += randomNum;
+            currentScore1.textContent = currentScore;
         }
         score0Element += randomNum; 
 
