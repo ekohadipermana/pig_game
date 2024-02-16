@@ -8,6 +8,9 @@ const btnRollElement = document.querySelector(".btn--roll");
 const diceElement = document.querySelector('.dice');
 const thePlayer0 = document.querySelector('.player--0');
 const thePlayer1 = document.querySelector('.player--1');
+const currentScore0 = document.querySelector('#current--0');
+const currentScore1 = document.querySelector('#current--1');
+let currentScore = 0;
 
 
 // first condition
@@ -23,14 +26,19 @@ const createRandomNum = function () {
     diceElement.src = `dice-${randomNum}.png`;
     if (randomNum === 1) {
         // switch to nexr player
+        if (thePlayer0.classList.contains('player--active')) {
+            
+        }
     }
     else {
         // add number to score
         if (thePlayer0.classList.contains('player--active')) {
-            score0Element += randomNum;
+            currentScore += randomNum;
+            currentScore0.textContent = currentScore;
         }
         else if (thePlayer1.classList.contains('player--active')) {
-            score1Element += randomNum;
+            currentScore1 += randomNum;
+            currentScore1.textContent = currentScore1;
         }
         score0Element += randomNum; 
 
