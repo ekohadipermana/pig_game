@@ -21,6 +21,7 @@ score1Element.textContent = 0;
 // Rolling Dice
 const createRandomNum = function () {
     let randomNum = Math.floor(Math.random() * 6 + 1);
+    // let randomNum = 2;
     // console.log(Math.floor(Math.random() * 6 + 1));
     diceElement.classList.remove('hidden');
     diceElement.src = `dice-${randomNum}.png`;
