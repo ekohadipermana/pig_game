@@ -28,11 +28,17 @@ const createRandomNum = function () {
         // switch to nexr player
         if (thePlayer0.classList.contains('player--active')) {
             thePlayer0.classList.remove('player--active');
+            currentScore0.textContent = 0;
+            currentScore = 0;
+            score0Element = 0;
             thePlayer1.classList.add('player--active');
         }
         else if (thePlayer1.classList.contains('player--active')) {
             thePlayer1.classList.remove('player--active');
-            thePlayer0.classList.add('player--active');
+            currentScore1.textContent = 0;
+            currentScore = 0;
+            score1Element = 0;
+            thePlayer0.classList.add('player--active'); 
         }
     }
     else {
@@ -45,9 +51,19 @@ const createRandomNum = function () {
             currentScore += randomNum;
             currentScore1.textContent = currentScore;
         }
-        score0Element += randomNum; 
+        // score0Element += randomNum; 
 
     }
 };
 
+const holdButton = function () {
+    if (thePlayer0.classList.contains('player--active')) {
+        score0Element += currentScore;
+    }
+    else if (thePlayer1.classList.contains('player--active')) {
+        score1Element += currentScore;
+    }
+}
 btnRollElement.addEventListener('click', createRandomNum);
+btnHoldElement.addEventListener('click', holdButton);
+                                                               
