@@ -11,6 +11,7 @@ const thePlayer1 = document.querySelector('.player--1');
 const currentScore0 = document.querySelector('#current--0');
 const currentScore1 = document.querySelector('#current--1');
 let currentScore = 0;
+let playerActive = 0;
 
 
 // first condition
@@ -26,29 +27,45 @@ const createRandomNum = function () {
     diceElement.classList.remove('hidden');
     diceElement.src = `dice-${randomNum}.png`;
     if (randomNum === 1) {
-        // switch to nexr player
-        if (thePlayer0.classList.contains('player--active')) {
+        if (playerActive === 0) {
             thePlayer0.classList.remove('player--active');
+            thePlayer1.classList.add('player--active');
             currentScore0.textContent = 0;
             currentScore = 0;
             score0Element = 0;
-            thePlayer1.classList.add('player--active');
+            playerActive = 1;
         }
-        else if (thePlayer1.classList.contains('player--active')) {
+        else if (playerActive === 1) {
             thePlayer1.classList.remove('player--active');
+            thePlayer0.classList.add('player--active');
             currentScore1.textContent = 0;
             currentScore = 0;
             score1Element = 0;
-            thePlayer0.classList.add('player--active'); 
+            playerActive = 0;
         }
+        // switch to nexr player
+        // if (thePlayer0.classList.contains('player--active')) {
+        //     thePlayer0.classList.remove('player--active');
+        //     currentScore0.textContent = 0;
+        //     currentScore = 0;
+        //     score0Element = 0;
+        //     thePlayer1.classList.add('player--active');
+        // }
+        // else if (thePlayer1.classList.contains('player--active')) {
+        //     thePlayer1.classList.remove('player--active');
+        //     currentScore1.textContent = 0;
+        //     currentScore = 0;
+        //     score1Element = 0;
+        //     thePlayer0.classList.add('player--active'); 
+        // }
     }
     else {
         // add number to score
-        if (thePlayer0.classList.contains('player--active')) {
+        if (playerActive === 0) {
             currentScore += randomNum;
             currentScore0.textContent = currentScore;
         }
-        else if (thePlayer1.classList.contains('player--active')) {
+        else if (playerActive === 1) {
             currentScore += randomNum;
             currentScore1.textContent = currentScore;
         }
