@@ -33,3 +33,11 @@ score1El.textContent = 0;
 current0El.textContent = 0;
 current1El.textContent = 0;
 theDice.classList.add('hidden');
+
+// Creating roll dice and random number
+const rollClicked = function () {
+    const randomNum = Math.trunc(Math.random() * 6) + 1;
+    console.log(randomNum);
+}
+
+buttonRoll.addEventListener('click', rollClicked);
