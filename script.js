@@ -28,6 +28,10 @@ const createRandomNum = function () {
     diceElement.src = `dice-${randomNum}.png`;
     if (randomNum === 1) {
         if (playerActive === 0) {
+            thePlayer0.classList.
+        }
+        
+        if (playerActive === 0) {
             thePlayer0.classList.remove('player--active');
             thePlayer1.classList.add('player--active');
             currentScore0.textContent = 0;
