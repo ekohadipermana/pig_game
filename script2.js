@@ -6,6 +6,7 @@ const current1El = document.querySelector('#current--1');
 const buttonNew = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonHold = document.querySelector('.btn--hold');
+const theDice = document.querySelector('.dice');
 
 /* -----------------------------------------------------
 // test - succeed
@@ -31,3 +32,4 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 current0El.textContent = 0;
 current1El.textContent = 0;
+theDice.classList.add('hidden');
