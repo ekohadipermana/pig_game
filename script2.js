@@ -7,3 +7,8 @@ const buttonNew = document.querySelector('btn--new');
 const buttonRoll = document.querySelector('btn--roll');
 const buttonHold = document.querySelector('btn--hold');
 
+// test
+score0El.textContent = 99;
+score1El.textContent = 99;
+current0El.textContent = 99;
+current1El.textContent = 99;
