@@ -9,14 +9,14 @@ const buttonHold = document.querySelector('.btn--hold');
 const theDice = document.querySelector('.dice');
 const thePlayer0 = document.querySelector('.player--0');
 const thePlayer1 = document.querySelector('.player--1');
-let activePlayer = 1;
+let activePlayer = 0;
 let currentScore = 0;
 // let currentPlayer = document.querySelector(`#current--${activePlayer}`);
 let currentPlayer0 = document.querySelector('#current--0');
 let currentPlayer1 = document.querySelector('#current--1');
 console.log(activePlayer);
 let score0 = 0;
-let score1 = 1;
+let score1 = 0;
 
 // console.log(currentPlayer)
 
@@ -43,16 +43,18 @@ buttonRoll.addEventListener('click', function() {
 // Creating initial state
 score0El.textContent = 0;
 score1El.textContent = 0;
-// current0El.textContent = 0;
-// current1El.textContent = 0;
+current0El.textContent = 0;
+current1El.textContent = 0;
 theDice.classList.add('hidden');
 
 // Creating roll dice and random number
 const rollClicked = function () {
     let currentPlayer = document.querySelector(`#current--${activePlayer}`);
+    theDice.classList.remove('hidden');
     console.log(`active player: ${activePlayer}`);
     console.log(currentPlayer);
     let randomNum = Math.floor(Math.random() * 6) + 1;
+    theDice.src = `dice-${randomNum}.png`;
     console.log(typeof randomNum, randomNum); // test the random function
     if (randomNum !== 1) {        
         currentScore += randomNum;
@@ -62,17 +64,22 @@ const rollClicked = function () {
         currentScore = 0;
         currentPlayer.textContent = currentScore;
         if (activePlayer == 0) {
-            activePlayer = 1;
+            score0 = 0;
+            score0El.textContent = score0;
+            activePlayer = 1;        
             thePlayer0.classList.remove('player--active');
             thePlayer1.classList.add('player--active');
         }
         else if (activePlayer == 1) {
+            score1 = 0;
+            score1El.textContent = score1;
             activePlayer = 0;
             thePlayer1.classList.remove('player--active');
             thePlayer0.classList.add('player--active');
         }
 
     }
+    
     
     
     /*
@@ -101,5 +108,45 @@ const rollClicked = function () {
         // thePlayer1.classList.add('player--active');
     }
 
+// the function for creating hold button 
+const holdClicked = function () {
+    if (activePlayer === 0) {
+        score0 += currentScore;
+        score0El.textContent = score0;
+        activePlayer = 1;
+        thePlayer0.classList.remove('player--active');
+        thePlayer1.classList.add('player--active');
+        currentScore = 0;
+        current0El.textContent = currentScore;
+        theDice.classList.add('hidden');
+
+    }
+    else if (activePlayer === 1) {
+        score1 += currentScore;
+        score1El.textContent = score1;
+        activePlayer = 0;
+        thePlayer1.classList.remove('player--active');
+        thePlayer0.classList.add('player--active');
+        currentScore = 0;
+        current1El.textContent = currentScore;
+        theDice.classList.add('hidden');
+    }
+}
+
+const newClicked = function () {
+    currentScore = 0;
+    score0 = 0;
+    score1 = 0;
+    activePlayer = 0;
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+    theDice.classList.add('hidden');
+
+}
+
 
 buttonRoll.addEventListener('click', rollClicked);
+buttonHold.addEventListener('click', holdClicked);
+buttonNew.addEventListener('click', newClicked);
