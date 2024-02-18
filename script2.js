@@ -7,6 +7,7 @@ const buttonNew = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonHold = document.querySelector('.btn--hold');
 const theDice = document.querySelector('.dice');
+let currentNum0 = 0;
 
 /* -----------------------------------------------------
 // test - succeed
@@ -37,7 +38,9 @@ theDice.classList.add('hidden');
 // Creating roll dice and random number
 const rollClicked = function () {
     const randomNum = Math.trunc(Math.random() * 6) + 1;
-    console.log(randomNum);
+    currentNum0 += randomNum;
+    console.log(randomNum); // test the random function
+    current0El.textContent = currentNum0;
 }
 
 buttonRoll.addEventListener('click', rollClicked);
