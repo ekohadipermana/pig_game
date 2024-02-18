@@ -7,13 +7,14 @@ const buttonNew = document.querySelector('.btn--new');
 const buttonRoll = document.querySelector('.btn--roll');
 const buttonHold = document.querySelector('.btn--hold');
 
-// test
+/* -----------------------------------------------------
+// test - succeed
 score0El.textContent = 99;
 score1El.textContent = 99;
 current0El.textContent = 99;
 current1El.textContent = 99;
 
-// button test
+// button test - succeed
 buttonNew.addEventListener('click', function() {
     console.log('new clicked')
 });
@@ -23,3 +24,10 @@ buttonHold.addEventListener('click', function() {
 buttonRoll.addEventListener('click', function() {
     console.log('Roll clicked')
 });
+------------------------------------------------------*/
+
+// Creating initial state
+score0El.textContent = 0;
+score1El.textContent = 0;
+current0El.textContent = 0;
+current1El.textContent = 0;
